@@ -6,23 +6,23 @@ Created in python 3.6 on: 2017-02-17
 GitHub: @shaleshock
 """
 def palindrome(string ,ignorecase = True, ignorespace = True):
-    """Checks whether a string is a palindrome. Ignores letter-case and spaces by default."""
+    """Checks whether a string is a palindrome. 
+       Ignores letter-case and spaces by default.
+    """
     import math
     
-    x = str(string)
     if ignorecase == True:
-        x = x.lower()     
+        string = string.lower()
     if ignorespace == True:
-        x = x.replace(' ','')
-    
-    countr = 0
-    half = int(math.floor((len(x))/2))
- 
-    for e in range(half):
-        if x[e] == x[-e-1]:
-            countr = countr+1
+        string = string.replace(' ','')
 
-    if countr == half:
+    counter = 0
+    midpoint = int(math.floor((len(string))/2))
+
+    for e in range(midpoint):
+        counter += string[e] == string[-e-1]
+
+    if counter == midpoint:
         return True
     else:
         return False
